@@ -1,0 +1,292 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0; min-height: 100%;
+}
+
+
+ body { 
+    color: #2d3028;
+    background: linear-gradient( rgba(245, 242, 232, 0.78), rgba(245, 242, 232, 0.78) ), 
+    url("images/background1.png"); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif; 
+}
+ 
+
+
+
+
+
+
+  .site-header { 
+    text-align: center; padding: 70px 20px 45px; 
+} 
+
+
+
+.site-header h1 {
+    margin: 0; 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 500; 
+    letter-spacing: 0.22em; 
+    color: #27352b; 
+}
+
+
+ .site-header p {
+    margin: 12px 0 0; 
+    font-size: 0.75rem; 
+    letter-spacing: 0.3em; 
+    text-transform: uppercase; 
+    color: #687263; 
+}
+
+
+
+
+
+
+  .gallery {
+    width: min(1300px, 90%);
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 35px;
+}
+
+.display:nth-child(1),
+.display:nth-child(2),
+.display:nth-child(3),
+.display:nth-child(4),
+.display:nth-child(5),
+.display:nth-child(6) {
+    grid-column: span 2;
+}
+
+.display:nth-child(7) {
+    grid-column: 2 / span 2;
+}
+
+.display:nth-child(8) {
+    grid-column: 4 / span 2;
+}
+
+
+
+
+
+
+.display {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: #f5f2e8;
+    border-radius: 6px;
+    box-shadow: 0 8px 25px rgba(40, 45, 35, 0.08);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+    
+.display:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(40, 45, 35, 0.16);
+}
+
+.display-images {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    background: #eeeae0;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.display:hover .display-images {
+    transform: scale(1.025);
+}
+
+ 
+ 
+
+
+
+.display-info {
+    padding: 18px 20px 20px;
+    background: rgba(250, 249, 243, 0.95);
+}
+
+.display-info h2 {
+    margin: 0 0 6px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 1.8vw, 2rem);
+    font-weight: 500;
+    color: #28372c;
+}
+    
+.display-info span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.6rem, 0.8vw, 0.9rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7a8375;
+    transition: color 0.3s ease;
+}
+
+.display:hover .display-info span {
+    color: #354d3a;
+}
+
+@media (max-width: 1000px) {
+
+    .site-header {
+        padding: 55px 20px 40px;
+    }
+
+    .gallery {
+        width: 88%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .display:nth-child(n) {
+        grid-column: auto;
+    }
+
+    .display-images {
+        height: clamp(260px, 35vw, 340px);
+    }
+}
+
+
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 45px 15px 30px;
+    }
+
+    .site-header h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+        letter-spacing: 0.13em;
+    }
+
+    .site-header p {
+        font-size: 0.58rem;
+        letter-spacing: 0.18em;
+        line-height: 1.7;
+    }
+ .gallery {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 70px;
+    }
+
+    .display:nth-child(n) {
+        grid-column: auto;
+    }
+
+    .display-images {
+        height: 320px;
+    }
+
+    .display-info {
+        padding: 16px 18px 18px;
+    }
+
+    .display-info h2 {
+        font-size: 1.4rem;
+    }
+    @media (max-width: 400px) {
+
+    .site-header {
+        padding-top: 35px;
+    }
+
+    .gallery {
+        width: 92%;
+        gap: 20px;
+    }
+
+    .display-images {
+        height: 280px;
+    }
+
+    .display-info h2 {
+        font-size: 1.3rem;
+    }
+
+}
+}
+    
+   
+
+
+
+    
+footer {
+    position: relative;
+    margin-top: 40px;
+    padding: 20px 20px 25px;
+    text-align: center;
+    background: rgba(250, 249, 243, 0.94);
+    border-top: 1px solid rgba(45, 48, 40, 0.12);
+}
+
+footer::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 1px;
+    margin: 0 auto 30px;
+    background: #9aa395;
+}
+
+.contact {
+    display: block;
+    margin: 0 0 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #27352b;
+}
+
+footer a {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.12em;
+    color: #687263;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(53, 77, 58, 0.35);
+    padding-bottom: 5px;
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+footer a:hover {
+    color: #354d3a;
+    border-color: #354d3a;
+}
+
+footer::after {
+    content: "FACHAINN • Handcrafted pieces inspired by nature";
+    display: block;
+    margin-top: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9aa395;
+}

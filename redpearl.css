@@ -1,0 +1,354 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    color: #2d3028;
+    background:
+        linear-gradient(
+            rgba(245, 242, 232, 0.78),
+            rgba(245, 242, 232, 0.78)
+        ),
+        url("images/background1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+
+.site-header {
+    text-align: center;
+    padding: 70px 20px 45px;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: #27352b;
+}
+
+.site-header p {
+    margin: 12px 0 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #687263;
+}
+
+.site-header a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #27352b;
+}
+
+
+
+
+
+
+.home-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 55px;
+    padding: 11px 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #687263;
+    text-decoration: none;
+    border: 1px solid rgba(104, 114, 99, 0.45);
+    border-radius: 30px;
+    background: rgba(250, 249, 243, 0.55);
+    transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.home-btn span {
+    display: inline-block;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.home-btn:hover {
+    color: #354d3a;
+    border-color: #354d3a;
+    background: rgba(250, 249, 243, 0.9);
+    transform: translateY(-2px);
+}
+
+.home-btn:hover span {
+    transform: translateX(-4px);
+}
+
+
+
+
+
+
+.gallery {
+    width: min(1300px, 90%);
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 35px;
+}
+
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3) {
+    grid-column: span 2;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.gallery-item:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+.gallery-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    background: #f5f2e8;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(40, 45, 35, 0.08);
+}
+
+
+
+
+
+
+.other-img {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: contain;
+    background: #eeeae0;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .other-img {
+    transform: scale(1.025);
+}
+
+
+
+
+
+
+
+
+
+.display-info {
+    padding: 18px 20px 20px;
+    background: rgba(250, 249, 243, 0.95);
+}
+
+.display-info h2 {
+    margin: 0 0 6px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 1.8vw, 2rem);
+    font-weight: 500;
+    color: #28372c;
+}
+    
+.display-info span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.6rem, 0.8vw, 0.9rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7a8375;
+    transition: color 0.3s ease;
+}
+
+.gallery-item:hover .display-info span {
+    color: #354d3a;
+}
+
+
+
+
+
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 25, 20, 0.82);
+    z-index: 1000;
+}
+
+#overlay.active {
+    display: flex;
+}
+
+#overlay-image {
+    max-width: 85vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    cursor: default;
+}
+
+.gallery-item:hover .other-img:not(.enlarged) {
+    transform: scale(1.025);
+}
+
+
+
+
+
+
+
+#prev,
+#next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1002;
+    user-select: none;
+    padding: 20px;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+#prev:hover,
+#next:hover {
+    color: #d8dfd4;
+}
+
+
+
+
+
+
+
+.close-btn {
+    display: none;
+}
+
+@media (max-width: 800px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .other-img {
+        height: 320px;
+    }
+    .other-img.enlarged {
+        max-width: 90vw;
+        max-height: 80vh;
+    }
+
+    #prev,
+    #next {
+        font-size: 2rem;
+        padding: 10px;
+    }
+}
+
+footer {
+    position: relative;
+    margin-top: 40px;
+    padding: 20px 20px 25px;
+    text-align: center;
+    background: rgba(250, 249, 243, 0.94);
+    border-top: 1px solid rgba(45, 48, 40, 0.12);
+}
+
+footer::before {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 1px;
+    margin: 0 auto 30px;
+    background: #9aa395;
+}
+
+.contact {
+    display: block;
+    margin: 0 0 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #27352b;
+}
+
+footer a {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.12em;
+    color: #687263;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(53, 77, 58, 0.35);
+    padding-bottom: 5px;
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+footer a:hover {
+    color: #354d3a;
+    border-color: #354d3a;
+}
+
+footer::after {
+    content: "FACHAINN • Handcrafted pieces inspired by nature";
+    display: block;
+    margin-top: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9aa395;
+}
+    
