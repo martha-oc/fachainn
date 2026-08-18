@@ -10,7 +10,7 @@ html, body {
  body { 
     color: #2d3028;
     background: linear-gradient( rgba(245, 242, 232, 0.78), rgba(245, 242, 232, 0.78) ), 
-    url("images/background1.png"); 
+    url("images/Background1.png"); 
     background-size: cover; 
     background-position: center; 
     background-attachment: fixed;
