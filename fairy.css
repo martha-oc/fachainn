@@ -315,6 +315,14 @@ footer::before {
     color: #27352b;
 }
 
+.precontact {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.12em;
+    color: #687263;
+}
+
 footer a {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
